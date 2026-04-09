@@ -44,5 +44,5 @@ You can adapt and run `check_bundle_resources.sh` after pointing `PROJECT_FILE` 
 
 Disclaimer
 
-This software is intended as an educational assistant** with safety-oriented filtering. It is not a substitute for professional medical advice, diagnosis, or treatment. Validate behavior, data handling, and compliance with your organization’s policies before any production or research use.
+This software is intended as an educational assistant with safety-oriented filtering. It is not a substitute for professional medical advice, diagnosis, or treatment. Validate behavior, data handling, and compliance with your organization’s policies before any production or research use.
 
