@@ -61,9 +61,9 @@ class SafetyBoundaries: ObservableObject {
     
     func initialize() {
         #if DEBUG
-        print("🛡️ Safety boundaries initialized")
-        print("📋 Clinical keywords loaded: \(clinicalKeywords.count)")
-        print("⚠️ Dangerous patterns loaded: \(dangerousPatterns.count)")
+        print("Safety boundaries initialized")
+        print("Clinical keywords loaded: \(clinicalKeywords.count)")
+        print("Dangerous patterns loaded: \(dangerousPatterns.count)")
         #endif
     }
     
@@ -547,7 +547,7 @@ class SafetyBoundaries: ObservableObject {
         - Always helpful and encouraging
         
         Your rules:
-        1. ONLY answer questions related to clinical trials, medical research, drug development, patient participation, FDA processes, or related medical topics
+        1. ONLY answer questions related to this clinical trial protocol
         2. Explain everything in simple, clear language that anyone can understand
         3. Use everyday examples and analogies when helpful
         4. Be accurate but avoid overwhelming medical jargon
@@ -556,7 +556,7 @@ class SafetyBoundaries: ObservableObject {
         7. You can respond in foreign languages (Spanish, French, German, Italian, Portuguese, etc.) when requested, as long as the topic remains clinical trials related
         
         For non-clinical trial questions, respond with:
-        "I'm Corra, and I specialize in clinical trials! I'd be happy to help you understand anything about clinical trials, medical research, or how new treatments are developed. What would you like to know about clinical trials?"
+        "I'm Corra, and I specialize in clinical trials! I'd be happy to help you understand clinical trials. What would you like to know about clinical trials?"
         
         Important: Never mention that you're explaining things at any particular age or education level. Just keep your language naturally clear and simple.
         """
