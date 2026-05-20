@@ -23,7 +23,7 @@ struct ChatView: View {
         // Add welcome message matching web app
         _messages = State(initialValue: [
             ChatMessage(
-                text: "Hi! I'm Corra, an AI assistant to help address questions about clinical trials. You can ask me about:\n\n✅ Clinical trial phases and procedures\n✅ Eligibility criteria and requirements\n✅ Understanding consent forms and protocols\n✅ General medical information related to trials\n\n💡 All processing happens on your device for complete privacy.",
+                text: "Hi! I'm Corra, an AI assistant to help address questions about clinical trials. You can ask me about:\n\n Clinical trial phases and procedures\n Eligibility criteria and requirements\n Understanding consent forms and protocols\n General medical information related to trials\n\n All processing happens on your device for complete privacy.",
                 isUser: false,
                 hasSafetyNotice: false
             )
@@ -34,7 +34,7 @@ struct ChatView: View {
         // Reset to just the welcome message
         messages = [
             ChatMessage(
-                text: "Hi! I'm Corra, an AI assistant to help address questions about clinical trials. You can ask me about:\n\n✅ Clinical trial phases and procedures\n✅ Eligibility criteria and requirements\n✅ Understanding consent forms and protocols\n✅ General medical information related to trials\n\n💡 All processing happens on your device for complete privacy.",
+                text: "Hi! I'm Corra, an AI assistant to help address questions about clinical trials. You can ask me about:\n\n Clinical trial phases and procedures\n Eligibility criteria and requirements\n Understanding consent forms and protocols\n General medical information related to trials\n\n All processing happens on your device for complete privacy.",
                 isUser: false,
                 hasSafetyNotice: false
             )
