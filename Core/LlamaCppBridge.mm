@@ -28,7 +28,7 @@
 
 - (instancetype)initWithModelPath:(NSString *)path {
 #ifdef DEBUG
-    NSLog(@"🚀 LlamaCppBridge (Real Inference) init");
+    NSLog(@"LlamaCppBridge (Real Inference) init");
 #endif
     self = [super init];
     if (self) {
@@ -77,7 +77,7 @@
     
     if (![fileManager fileExistsAtPath:pathStr]) {
 #ifdef DEBUG
-        NSLog(@"❌ Model file does not exist");
+        NSLog(@"Model file does not exist");
 #endif
         if (error) {
             *error = [NSError errorWithDomain:@"LlamaCppBridge"
@@ -100,7 +100,7 @@
     
     if (!model) {
 #ifdef DEBUG
-        NSLog(@"⚠️ Metal-first failed, trying CPU-only...");
+        NSLog(@"Metal-first failed, trying CPU-only...");
 #endif
         // Conservative fallback - still try to keep output layer on GPU
         model_params.n_gpu_layers = 28; // Keep most layers on GPU including near-output layers
@@ -109,7 +109,7 @@
         
         if (!model) {
 #ifdef DEBUG
-            NSLog(@"❌ Both Metal and CPU loading failed");
+            NSLog(@"Both Metal and CPU loading failed");
 #endif
             if (error) {
                 *error = [NSError errorWithDomain:@"LlamaCppBridge"
@@ -119,11 +119,11 @@
             return NO;
         }
 #ifdef DEBUG
-        NSLog(@"✅ CPU-only loading succeeded");
+        NSLog(@"CPU-only loading succeeded");
 #endif
     } else {
 #ifdef DEBUG
-        NSLog(@"✅ Metal-first loading succeeded");
+        NSLog(@"Metal-first loading succeeded");
 #endif
     }
     
@@ -152,7 +152,7 @@
     ctx = llama_init_from_model(model, ctx_params);
     if (!ctx) {
 #ifdef DEBUG
-        NSLog(@"❌ Failed to create context");
+        NSLog(@"Failed to create context");
 #endif
         llama_model_free(model);
         model = nullptr;
@@ -167,7 +167,7 @@
     _loadingProgress = 1.0;
     _isModelLoaded = YES;
 #ifdef DEBUG
-    NSLog(@"✅ Model and context loaded successfully for REAL INFERENCE");
+    NSLog(@"Model and context loaded successfully for REAL INFERENCE");
 #endif
     return YES;
 }
@@ -240,7 +240,7 @@
     // Process the prompt
     if (llama_decode(ctx, batch) != 0) {
 #ifdef DEBUG
-        NSLog(@"❌ Failed to decode prompt batch");
+        NSLog(@"Failed to decode prompt batch");
 #endif
         llama_batch_free(batch);
         return @"Error: Failed to process prompt";
@@ -439,7 +439,7 @@
     int32_t max_context_tokens = ctx_params.n_ctx;
     if (n_tokens > max_context_tokens) {
 #ifdef DEBUG
-        NSLog(@"⚠️ CAG prompt exceeds context size, truncating...");
+        NSLog(@"CAG prompt exceeds context size, truncating...");
 #endif
         
         // Find where user question starts (after "<|start_header_id|>user<|end_header_id|>")
@@ -533,7 +533,7 @@
         // Decode the prompt chunk
         if (llama_decode(ctx, batch) != 0) {
 #ifdef DEBUG
-            NSLog(@"❌ Failed to decode prompt batch for streaming");
+            NSLog(@"Failed to decode prompt batch for streaming");
 #endif
             llama_batch_free(batch);
             if (self.streamingDelegate) {
@@ -668,7 +668,7 @@
     // Clear KV cache if function exists, otherwise skip
     // llama_kv_cache_clear(ctx);
 #ifdef DEBUG
-    NSLog(@"🧹 Memory footprint reduction requested");
+    NSLog(@"Memory footprint reduction requested");
 #endif
 }
 
