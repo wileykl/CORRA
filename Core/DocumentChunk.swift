@@ -37,11 +37,11 @@ class DocumentChunkingManager: ObservableObject {
     // MARK: - Chunking Methods
     func chunkDocument(_ document: Document) -> [DocumentChunk] {
         guard let content = document.content, !content.isEmpty else {
-            print("⚠️ No content to chunk for document: \(document.name)")
+            print("No content to chunk for document: \(document.name)")
             return []
         }
         
-        print("📄 Chunking document: \(document.name) (\(content.count) characters)")
+        print("Chunking document: \(document.name) (\(content.count) characters)")
         
         let chunks = createChunks(
             content: content,
@@ -50,7 +50,7 @@ class DocumentChunkingManager: ObservableObject {
             overlapSize: overlapSize
         )
         
-        print("✅ Created \(chunks.count) chunks for document: \(document.name)")
+        print("Created \(chunks.count) chunks for document: \(document.name)")
         
         // Store chunks
         self.chunks.append(contentsOf: chunks)
@@ -216,17 +216,17 @@ class DocumentChunkingManager: ObservableObject {
     }
     
     func getRelevantChunks(for query: String, documentId: UUID, limit: Int = 3) -> [DocumentChunk] {
-        print("🔍 Searching for query '\(query)' in document \(documentId)")
-        print("📚 Total chunks available: \(chunks.count)")
-        print("📄 Chunks for this document: \(chunks.filter { $0.documentId == documentId }.count)")
+        print("Searching for query '\(query)' in document \(documentId)")
+        print("Total chunks available: \(chunks.count)")
+        print("Chunks for this document: \(chunks.filter { $0.documentId == documentId }.count)")
         
         let relevantChunks = searchChunks(query: query, documentId: documentId)
-        print("✅ Found \(relevantChunks.count) relevant chunks")
+        print("Found \(relevantChunks.count) relevant chunks")
         
         // If no relevant chunks found, return the first few chunks for general queries
         let result: [DocumentChunk]
         if relevantChunks.isEmpty {
-            print("⚠️ No relevant chunks found, returning first \(limit) chunks for general query")
+            print("No relevant chunks found, returning first \(limit) chunks for general query")
             let documentChunks = chunks.filter { $0.documentId == documentId }
                 .sorted { $0.chunkIndex < $1.chunkIndex }
             result = Array(documentChunks.prefix(limit))
@@ -234,7 +234,7 @@ class DocumentChunkingManager: ObservableObject {
             result = Array(relevantChunks.prefix(limit))
         }
         
-        print("📝 Returning \(result.count) chunks (limit: \(limit))")
+        print("Returning \(result.count) chunks (limit: \(limit))")
         
         return result
     }
