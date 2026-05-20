@@ -89,7 +89,7 @@ class DocumentManager: ObservableObject {
             
             guard let documentType = DocumentType(rawValue: fileExtension) else {
                 #if DEBUG
-                print("❌ Unsupported file type: \(fileExtension)")
+                print("Unsupported file type: \(fileExtension)")
                 #endif
                 return
             }
@@ -126,12 +126,12 @@ class DocumentManager: ObservableObject {
             // Chunk the document
             let chunks = chunkingManager.chunkDocument(processedDocument)
             #if DEBUG
-            print("✅ Created \(chunks.count) chunks for document: \(fileName)")
+            print("Created \(chunks.count) chunks for document: \(fileName)")
             #endif
             
         } catch {
             #if DEBUG
-            print("❌ Error adding document: \(error)")
+            print("Error adding document: \(error)")
             #endif
         }
     }
@@ -256,7 +256,7 @@ class DocumentManager: ObservableObject {
         }
         
         #if DEBUG
-        print("🔍 DEBUG: getDocumentContextForQuery - document: \(selectedDoc.name), content length: \(content.count)")
+        print("DEBUG: getDocumentContextForQuery - document: \(selectedDoc.name), content length: \(content.count)")
         #endif
         
         // Replicate the web app's get_document_context function exactly
@@ -360,7 +360,7 @@ class DocumentManager: ObservableObject {
         let topResults = relevantSections.prefix(maxResults).map { $0.1 }
         
         #if DEBUG
-        print("🔍 DEBUG: Found \(topResults.count) relevant sections")
+        print("DEBUG: Found \(topResults.count) relevant sections")
         #endif
         return Array(topResults)
     }
@@ -383,7 +383,7 @@ class DocumentManager: ObservableObject {
             UserDefaults.standard.set(data, forKey: "SavedDocuments")
         } catch {
             #if DEBUG
-            print("❌ Error saving documents: \(error)")
+            print("Error saving documents: \(error)")
             #endif
         }
     }
@@ -397,7 +397,7 @@ class DocumentManager: ObservableObject {
             documents = try JSONDecoder().decode([Document].self, from: data)
         } catch {
             #if DEBUG
-            print("❌ Error loading documents: \(error)")
+            print("Error loading documents: \(error)")
             #endif
         }
     }
