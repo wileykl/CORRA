@@ -153,7 +153,7 @@ class ModelManager: NSObject, ObservableObject {
             // Create bridge with configuration
             let config = configuration ?? self.memoryManager.getRecommendedConfiguration()
             #if DEBUG
-            print("📊 Using config - Context: \(config.contextSize), GPU Layers: \(config.gpuLayers), MLock: \(config.useMlock)")
+            print("Using config - Context: \(config.contextSize), GPU Layers: \(config.gpuLayers), MLock: \(config.useMlock)")
             #endif
             
             // CRITICAL FIX: Initialize bridge differently to handle CPU backend issue
@@ -176,7 +176,7 @@ class ModelManager: NSObject, ObservableObject {
                     self.isModelLoaded = true
                     self.loadingProgress = 1.0
                     #if DEBUG
-                    print("✅ Model loaded successfully")
+                    print("Model loaded successfully")
                     #endif
                 }
             } catch {
@@ -185,7 +185,7 @@ class ModelManager: NSObject, ObservableObject {
                     self.loadingProgress = 0.0
                     self.errorMessage = "Failed to load model: \(error.localizedDescription)"
                     #if DEBUG
-                    print("❌ Model loading failed: \(error)")
+                    print("Model loading failed: \(error)")
                     #endif
                 }
             }
@@ -364,7 +364,7 @@ extension ModelManager {
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
             #if DEBUG
-            print("❌ Failed to configure audio session: \(error)")
+            print("Failed to configure audio session: \(error)")
             #endif
         }
         
@@ -418,7 +418,7 @@ extension ModelManager {
             selectedVoiceIndex = enhancedSamanthaIndex
             selectedVoice = availableVoices[enhancedSamanthaIndex]
             #if DEBUG
-            print("🎙️ ✅ Using ENHANCED Samantha - Siri-like Quality!")
+            print("Using ENHANCED Samantha - Siri-like Quality!")
             #endif
             return
         }
@@ -430,7 +430,7 @@ extension ModelManager {
             selectedVoiceIndex = enhancedUSIndex
             selectedVoice = availableVoices[enhancedUSIndex]
             #if DEBUG
-            print("🎙️ ✅ Using Enhanced US English voice: \(availableVoices[enhancedUSIndex].name) - Better than basic TTS")
+            print("Using Enhanced US English voice: \(availableVoices[enhancedUSIndex].name) - Better than basic TTS")
             #endif
             return
         }
@@ -442,7 +442,7 @@ extension ModelManager {
             selectedVoiceIndex = premiumUSIndex
             selectedVoice = availableVoices[premiumUSIndex]
             #if DEBUG
-            print("🎙️ ✅ Using Premium US English voice: \(availableVoices[premiumUSIndex].name)")
+            print("Using Premium US English voice: \(availableVoices[premiumUSIndex].name)")
             #endif
             return
         }
@@ -454,7 +454,7 @@ extension ModelManager {
             selectedVoiceIndex = samanthaIndex
             selectedVoice = availableVoices[samanthaIndex]
             #if DEBUG
-            print("🎙️ ⚠️ Using Standard Samantha")
+            print("Using Standard Samantha")
             #endif
             return
         }
@@ -544,12 +544,6 @@ extension ModelManager {
         cleanText = cleanText.replacingOccurrences(of: "*", with: "")
         cleanText = cleanText.replacingOccurrences(of: "#", with: "")
         
-        // Remove emoji and special symbols
-        cleanText = cleanText.replacingOccurrences(of: "✅", with: "")
-        cleanText = cleanText.replacingOccurrences(of: "❌", with: "")
-        cleanText = cleanText.replacingOccurrences(of: "⚠️", with: "Warning:")
-        cleanText = cleanText.replacingOccurrences(of: "🎯", with: "")
-        cleanText = cleanText.replacingOccurrences(of: "🔍", with: "")
         
         // Improve pronunciation of medical terms
         cleanText = cleanText.replacingOccurrences(of: "FDA", with: "F D A")
