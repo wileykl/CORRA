@@ -31,7 +31,7 @@ Requirements
 - **Xcode** and an **iOS** deployment target suitable for SwiftUI and Metal.
 - **Device storage and RAM**: the bundled GGUF is large (multi-gigabyte). The app prefers roughly **4 GB+** available memory for the full configuration; below that it uses a reduced configuration.
 - A valid **`knowledge_cache.json`** in the app target’s bundle (same expectation as `CAGManager`); without it, CAG reports a load error at runtime.
-- Access to the unquantized model can be found at https://huggingface.co/meta-llama/Llama-3.2-3B 
+- Access to the original model can be found at https://huggingface.co/meta-llama/Llama-3.2-3B 
 
 Building and running
 
