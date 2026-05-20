@@ -33,7 +33,7 @@ class TTSManager: NSObject, ObservableObject {
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
             #if DEBUG
-            print("❌ Failed to configure audio session: \(error)")
+            print("Failed to configure audio session: \(error)")
             #endif
         }
     }
@@ -107,12 +107,6 @@ class TTSManager: NSObject, ObservableObject {
         cleanText = cleanText.replacingOccurrences(of: "*", with: "")
         cleanText = cleanText.replacingOccurrences(of: "#", with: "")
         
-        // Remove emoji and special symbols
-        cleanText = cleanText.replacingOccurrences(of: "✅", with: "")
-        cleanText = cleanText.replacingOccurrences(of: "❌", with: "")
-        cleanText = cleanText.replacingOccurrences(of: "⚠️", with: "Warning:")
-        cleanText = cleanText.replacingOccurrences(of: "🎯", with: "")
-        cleanText = cleanText.replacingOccurrences(of: "🔍", with: "")
         
         // Improve pronunciation of medical terms
         cleanText = cleanText.replacingOccurrences(of: "FDA", with: "F D A")
