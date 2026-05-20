@@ -182,7 +182,7 @@ class MemoryManager: ObservableObject {
     }
     
     func handleMemoryWarning() {
-        os_log(.error, "⚠️ Memory warning received")
+        os_log(.error, "Memory warning received")
         memoryPressure = .critical
         
         // Clear any caches
