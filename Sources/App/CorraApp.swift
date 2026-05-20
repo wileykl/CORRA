@@ -38,16 +38,16 @@ struct CorraApp: App {
     
     private func configureMedicalApp() {
         #if DEBUG
-        print("🧬 Corra Clinical Trials Assistant")
-        print("📱 Version: 1.0.0 (Enhanced Simple)")
-        print("🛡️ Safety boundaries: ENABLED")
-        print("💾 Memory management: ACTIVE")
+        print("Corra Clinical Trials Assistant")
+        print("Version: 1.0.0 (Enhanced Simple)")
+        print("Safety boundaries: ENABLED")
+        print("Memory management: ACTIVE")
         #endif
     }
     
     private func initializeApp() {
         #if DEBUG
-        print("🚀 Initializing Corra...")
+        print("Initializing Corra...")
         #endif
         
         // Check device capabilities
@@ -66,7 +66,7 @@ struct CorraApp: App {
     
     private func handleMemoryWarning() {
         #if DEBUG
-        print("⚠️ Memory warning received")
+        print("Memory warning received")
         #endif
         memoryManager.handleMemoryWarning()
         
