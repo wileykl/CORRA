@@ -10,28 +10,12 @@ class SafetyBoundaries: ObservableObject {
     static let shared = SafetyBoundaries()
     
     // Clinical trial keywords from Python cora.py
-    private let clinicalKeywords = [
-        "clinical trial", "clinical study", "medical research", "drug development",
-        "placebo", "fda", "phase 1", "phase 2", "phase 3", "phase 4",
-        "patient", "participant", "treatment", "medication", "therapy",
-        "side effect", "efficacy", "safety", "protocol", "consent",
-        "randomized", "double-blind", "control group", "experimental",
-        "pharmaceutical", "medicine", "disease", "condition", "symptom",
-        "doctor", "researcher", "hospital", "clinic", "health", "medical",
-        "trial", "study", "research", "test", "testing", "experiment",
-        "volunteer", "enroll", "recruitment", "criteria", "eligibility",
-        "principal investigator", "pi", "investigator", "researcher", "protocol",
-        // TIN/Network related
-        "innovation network", "trial innovation", "tin", "ctsa", "consortium",
-        "recruitment support", "network", "hub"
-    ]
+    private let clinicalKeywords = [INSERT USER KEYWORDS]
+        
     
     // Dangerous patterns for adversarial defense
-    private let dangerousPatterns = [
-        "ignore previous", "disregard instructions", "forget what i said",
-        "system prompt", "jailbreak", "bypass", "override",
-        "<script>", "javascript:", "onclick", "onerror",
-        "drop table", "select from", "insert into", "delete from"
+    private let dangerousPatterns = [INSERT USER KEYWORDS]
+        
     ]
     
     // Personal medical advice patterns to filter (refined to allow clinical trial anxiety discussions)
